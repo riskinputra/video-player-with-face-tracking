@@ -68,14 +68,17 @@
       const canvasElement = document.getElementById('camera');
       const ctx = canvasElement.getContext('2d');
 
-      function playVideoDefaultFirtRender() {
-        videoDefault.style.display = 'block'
-        videoDefault.play()
-      }
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        function playVideoDefaultFirtRender() {
+          videoDefault.style.display = 'block'
+          videoDefault.play()
+        }
+        playVideoDefaultFirtRender()
+      });
 
       async function startCamera() {
         try {
-          playVideoDefaultFirtRender()
           const stream = await navigator.mediaDevices.getUserMedia({
             video: true,
           });
