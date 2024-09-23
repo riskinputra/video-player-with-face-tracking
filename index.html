@@ -134,17 +134,6 @@
         requestAnimationFrame(() => detectFace({ webcamVideo, detector }));
       }
 
-      function updateVideoSource(src) {
-        const source = document.createElement('source');
-        source.src = src;
-        source.type = 'video/mp4';
-
-        videoDefault.innerHTML = ''; // Kosongkan elemen video sebelumnya
-        videoDefault.appendChild(source);
-        videoDefault.load(); // Muat ulang video dengan sumber baru
-        videoDefault.play(); // Mulai putar video
-      }
-
       startCamera();
     </script>
   </body>
