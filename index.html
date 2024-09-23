@@ -68,8 +68,14 @@
       const canvasElement = document.getElementById('camera');
       const ctx = canvasElement.getContext('2d');
 
+      function playVideoDefaultFirtRender() {
+        videoDefault.style.display = 'block'
+        videoDefault.play()
+      }
+
       async function startCamera() {
         try {
+          playVideoDefaultFirtRender()
           const stream = await navigator.mediaDevices.getUserMedia({
             video: true,
           });
@@ -119,6 +125,7 @@
 
         if (faces.length > 0) {
           videoDefault.pause()
+          videoDefault.currentTime = 0
           videoDefault.style.display = 'none'
           // Jika wajah terdeteksi, putar video yang diinginkan
           videoContent.style.display = 'block'
@@ -128,6 +135,7 @@
           videoDefault.play()
           // Jika wajah terdeteksi, putar video yang diinginkan
           videoContent.pause()
+          videoContent.currentTime = 0
           videoContent.style.display = 'none'
         }
 
